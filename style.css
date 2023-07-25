@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;');
+
+:root {
+    --bg: #0a1428;
+    --pink: #be4b34;
+    --lg: #16eac9;
+    --fc: #8f9699;
+    --white: #fff;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+}
+
+.container span {
+    position: absolute;
+    left: 0;
+    width: 32px;
+    height: 6px;
+    border-radius: 8px;
+    background: var(--fc);
+    transform: scale(2) rotate(calc((360deg / 50) * var(--i)));
+    transform-origin: 150px;
+    animation: loading 3s linear infinite alternate;
+    animation-delay: calc((3s / 50) * var(--i));
+}
+
+@keyframes loading {
+    0% {
+        background: var(--pink);
+    }
+
+    25%{
+        background: var(--lg);
+    }
+
+    50%{
+        background: var(--fc);
+    }
+}
+
+.form-container{
+    position: absolute;
+    width: 400px;
+}
+
+.form-container form {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-container h1 {
+    color: var(--lg);
+    font-style: 32px;
+    font-weight: 900;
+    text-align: center;
+    margin-block-end: 32px;
+}
+
+.form-container .form-group{
+    position: relative;
+    margin-block-end: 32px;
+}
+
+.form-group input{
+    padding: 8px 16px;
+    width: 100%;
+    height: 48px;
+    background-color: transparent;
+    border: 2px solid var(--fc);
+    border-radius: 50px;
+    color: var(--lg);
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group input:valid{
+    border-color: var(--lg);
+}
+
+.form-group label{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    padding: 0 8px;
+    font-weight: 700;
+    color: var(--fc);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.form-group input:focus ~label,
+.form-group input:valid ~label{
+    top: 1px;
+    color: var(--lg);
+    padding: 2px 8px;
+    background: var(--bg);
+}
+
+button {
+    width: 100%;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: var(--white);
+    background: var(--lg);
+    outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    margin-block: 20px;
+    border: 0;
+}
+
+.fgpsw, .register {
+    text-align: center;
+}
+
+.fgpsw a, 
+.register a {
+    color: var(--fc);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.fgpsw a:hover, 
+.register a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
